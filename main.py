@@ -37,7 +37,7 @@ def set_output():
 #######################
 
 # run function
-def run():
+def run0():
     run(path_var.get(),sort_in_var.get())
 
 #main wind
@@ -93,7 +93,7 @@ browes_SORTin_btn=tkinter.Button(root,image=btn_photos,width=42,height=18,bd=0
 browes_SORTin_btn.place(rely=.68,relx=.83)
 
 submit_btn=tkinter.Button(root,text="Submit",width=12,height=2,font=("Microsoft JhengHei UI Light",16,"bold")
-                          ,bd=0,relief="flat",fg="#00b7ff",bg="white",activebackground="#f6ff00",command=threading.Thread(target=run).start)
+                          ,bd=0,relief="flat",fg="#00b7ff",bg="white",activebackground="#f6ff00",command=threading.Thread(target=run0).start)
 submit_btn.place(rely=.75,relx=.3)
 
 
