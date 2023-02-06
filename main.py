@@ -9,30 +9,40 @@ for file in os.listdir(path):
         if "music" in os.listdir(path):
             shutil.copy(file,"music")
             os.remove(file)
-            print("done")
+            print("done : ",file)
             continue
         elif "music" not in os.listdir(path) :
             os.mkdir("music")
             shutil.copy(file,"music")
             os.remove(file)
-            print("done")
+            print("done : ",file)
             continue
         #music files
     if file.endswith(("mp4",".mkv",".mov",".wmv","avi")):
         if "video" in os.listdir(path):
             shutil.copy(file,"video")
             os.remove(file)
-            print("done")
+            print("done : ",file)
             continue
         elif "video" not in os.listdir(path):
             os.mkdir("video")
             shutil.copy(file,"video")
             os.remove(file)
-            print("done")
+            print("done : ",file)
             continue
         #video files
     if file.endswith((".jpeg",".jpg",".png",".gif",".tiff")):
-        pass
+        if "photo" in os.listdir(path):
+            shutil.copy(file,"photo")
+            os.remove(file)
+            print("done : ",file)
+            continue
+        elif "photo" not in os.listdir(path):
+            os.mkdir("photo")
+            shutil.copy(file,"photo")
+            os.remove(file)
+            print("done : ",file)
+            continue
         #photo files
     if file.endswith((".pdf",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".txt",".odt")):
         pass
