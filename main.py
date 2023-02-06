@@ -45,5 +45,15 @@ for file in os.listdir(path):
             continue
         #photo files
     if file.endswith((".pdf",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".txt",".odt")):
-        pass
+        if "documents" in os.listdir(path):
+            shutil.copy(file,"documents")
+            os.remove(file)
+            print("done : ",file)
+            continue
+        elif "documents" not in os.listdir(path):
+            os.mkdir("documents")
+            shutil.copy(file,"documents")
+            os.remove(file)
+            print("done : ",file)
+            continue
         #documents file
