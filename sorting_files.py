@@ -1,14 +1,10 @@
 import os
 import shutil
 from tkinter import messagebox
-# from main import status_bar
-
-
-
 #sort files by extensions
 def run(file_into=os.getcwd(),output_path=os.getcwd()):
-    path=os.path.dirname(os.path.realpath(file_into))
-    # status_bar.config(text=f"status bar : working at {file}")
+    path=file_into
+    os.chdir(path)
     for file in os.listdir(path):
         if file.endswith((".mp3",".acc",".wav",".flac",".m4a")):
             if "music" in os.listdir(path):
@@ -30,7 +26,7 @@ def run(file_into=os.getcwd(),output_path=os.getcwd()):
                 print("done : ",file)
                 continue
             elif "video" not in os.listdir(path):
-                os.mkdir("video")
+                os.mkdir(f"{output_path}/video")
                 shutil.copy(file,f"{output_path}/video")
                 os.remove(file)
                 print("done : ",file)
@@ -43,7 +39,7 @@ def run(file_into=os.getcwd(),output_path=os.getcwd()):
                 print("done : ",file)
                 continue
             elif "photo" not in os.listdir(path):
-                os.mkdir("photo")
+                os.mkdir(f"{output_path}/photo")
                 shutil.copy(file,f"{output_path}/photo")
                 os.remove(file)
                 print("done : ",file)
